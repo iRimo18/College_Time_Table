@@ -1,1 +1,1 @@
-This is college time table maker
+A college time table maker for a particular department with different years!
