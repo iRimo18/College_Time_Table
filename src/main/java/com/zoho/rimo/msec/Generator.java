@@ -8,6 +8,7 @@ import com.zoho.rimo.msec.util.DayResolver;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.zoho.rimo.msec.util.DayResolver.TOTAL_WORKING_DAY;
@@ -27,7 +28,7 @@ public class Generator
     {
         Generator generator = new Generator();
 
-        File file = new File("/home/local/ZOHOCORP/rimo-7487/Rimo/github/MSEC_Time_Table/src/input.txt");
+        File file = new File("./src/main/java/input.txt");
 
         generator.data = new InputDetails(file);
 
@@ -37,7 +38,7 @@ public class Generator
         GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm(generator.data);
         Population population = new Population(Generator.POPULATION_SIZE, generator.data).sortByFitness();
 
-        while (population.getSchedules().get(0).getFitness() != 1.0 && generationNumber < 1000) {
+        while (population.getSchedules().get(0).getFitness() != 1.0 && generationNumber < 100) {
             System.out.println("generation number : " + generationNumber + " fitness : " + population.getSchedules().get(0).getFitness());
             System.out.println();
             //generator.printScheduleAsTable(population.getSchedules().get(0));
@@ -48,6 +49,7 @@ public class Generator
 
         System.out.println("...........................................................................");
         System.out.println("Final schedule found in number " + generationNumber + " generation with fitness " + population.getSchedules().get(0).getFitness());
+        System.out.println("...........................................................................\n");
         generator.printScheduleAsTable(population.getSchedules().get(0));
     }
 
@@ -56,10 +58,10 @@ public class Generator
         ArrayList<Class> classes = schedule.getClasses();
         String[] dept = new String[] {"II-CSE", "III-CSE"};
         for (int day = 1; day <= TOTAL_WORKING_DAY; day++) {
+            System.out.print("************** " + DayResolver.getDayOfTheWeek(day) + " **************");
             for (String department : dept) {
                 System.out.println("\n" + department);
-                System.out.println("Day\t1\t2\t3\t4\t5\t6\t7");
-                System.out.print(DayResolver.getDayOfTheWeek(day));
+                System.out.println("\t1\t2\t3\t4\t5\t6\t7");
                 Class[] tempclass = new Class[7];
                 for (int periodId = 1; periodId <= 7; periodId++) {
                     for (Class period : classes) {
@@ -75,6 +77,7 @@ public class Generator
                 }
                 System.out.println();
             }
+            System.out.print("************** *** **************\n");
         }
         System.out.println("\n...........................................................................\n");
     }

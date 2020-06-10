@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 /**
  * Department.java- It is denoting the department with year that can be mentioned in the name
+ *
  * @author Rimo-7487
  * @version 1.0
  */
-public class Department {
+public class Department
+{
 
     private String name;
     private ArrayList<Course> courses;
@@ -27,5 +29,4 @@ public class Department {
     {
         return courses;
     }
-
 }

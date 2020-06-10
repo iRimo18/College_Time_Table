@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 /**
  * Course.java- It is denoting the subject, that has a number and a name
+ *
  * @author Rimo-7487
  * @version 1.0
  */
-public class Course {
+public class Course
+{
 
     private String number;
     private String name;
     private ArrayList<Instructor> instructors;
-
 
     public Course(String number, String name, ArrayList<Instructor> instructors)
     {
@@ -40,5 +41,4 @@ public class Course {
     {
         return name;
     }
-
 }

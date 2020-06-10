@@ -2,10 +2,12 @@ package com.zoho.rimo.msec.resources;
 
 /**
  * Instructor.java- It is denoting the subject teacher
+ *
  * @author Rimo-7487
  * @version 1.0
  */
-public class Instructor {
+public class Instructor
+{
 
     private String id;
     private String name;
@@ -30,5 +32,4 @@ public class Instructor {
     {
         return name;
     }
-
 }

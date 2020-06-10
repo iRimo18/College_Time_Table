@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 
 /**
  * InputDetails.java- This is the data class, which feds the resource classes
+ *
  * @author Rimo-7487
  * @version 1.0
  */
@@ -52,7 +53,7 @@ public class InputDetails
                 }
 
                 if (line.equalsIgnoreCase("### Course ###")) {
-                    this.courses  = new ArrayList<>();
+                    this.courses = new ArrayList<>();
                     while (!(line = scanner.nextLine()).equalsIgnoreCase("### Department ###")) {
                         StringTokenizer st = new StringTokenizer(line, " ");
                         ArrayList<Instructor> instructorArrayList = new ArrayList<>();
@@ -68,7 +69,7 @@ public class InputDetails
                     while (!(line = scanner.nextLine()).equalsIgnoreCase("### EOF ###")) {
                         StringTokenizer st = new StringTokenizer(line, " ");
                         String name = st.nextToken();
-                        ArrayList<Course> courseArrayList =new ArrayList<>();
+                        ArrayList<Course> courseArrayList = new ArrayList<>();
                         while (st.hasMoreTokens()) {
                             courseArrayList.add(this.courses.get(Integer.parseInt(st.nextToken()) - 1));
                         }

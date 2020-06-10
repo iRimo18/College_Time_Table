@@ -2,10 +2,12 @@ package com.zoho.rimo.msec.resources;
 
 /**
  * Class.java- This is the Gene, basic unit, It is denoting the period, that has a dept name, subject, teacher and time
+ *
  * @author Rimo-7487
  * @version 1.0
  */
-public class Class {
+public class Class
+{
 
     private int id;
     private Department dept;
@@ -30,7 +32,6 @@ public class Class {
     {
         this.course = course;
     }
-
 
     public int getId()
     {
@@ -59,7 +60,7 @@ public class Class {
 
     public String toString()
     {
-        return "{" + dept.getName() + "," + course.getName() + "," + instructor.getName() + "," + meetingTime.getTime()+ "}";
+        return "{" + dept.getName() + "," + course.getName() + "," + instructor.getName() + "," + meetingTime.getTime() + "}";
     }
 
     public void setDay(int day)

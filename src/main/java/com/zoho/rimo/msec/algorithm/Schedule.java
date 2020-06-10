@@ -5,7 +5,6 @@ import com.zoho.rimo.msec.resources.Class;
 import com.zoho.rimo.msec.resources.Course;
 
 import java.util.ArrayList;
-import java.util.stream.IntStream;
 
 import static com.zoho.rimo.msec.util.DayResolver.TOTAL_WORKING_DAY;
 
@@ -39,7 +38,7 @@ public class Schedule
     public Schedule initialize()
     {
         // generating each period, for each dept and each subject, here class is a period
-        for(int day = 1; day <= TOTAL_WORKING_DAY; day++ ) {
+        for (int day = 1; day <= TOTAL_WORKING_DAY; day++) {
             int finalDay = day;
             new ArrayList<>(data.getDepts()).forEach(dept -> new ArrayList<>(data.getMeetingTimes()).forEach(meetingTime -> {
                 Class newClass = new Class(classNumb++, dept, meetingTime);
@@ -85,7 +84,7 @@ public class Schedule
                     //System.out.println("same time and same dept conflict");
                     numbOfConflicts++;
                 }
-                if ( x.getDay() == y.getDay() &&x.getMeetingTime().getId().equals(y.getMeetingTime().getId()) && !x.getDept().getName().equals(y.getDept().getName()) && x.getInstructor().getName().equals(y.getInstructor().getName())) {
+                if (x.getDay() == y.getDay() && x.getMeetingTime().getId().equals(y.getMeetingTime().getId()) && !x.getDept().getName().equals(y.getDept().getName()) && x.getInstructor().getName().equals(y.getInstructor().getName())) {
                     //System.out.println("same time and different class and same teacher conflict");
                     numbOfConflicts++;
                 }
